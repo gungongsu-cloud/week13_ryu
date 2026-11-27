@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Toolkit - 대학생을 위한 올인원 도구 모음</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo">
+        <span class="logo-badge">ST</span>
+        <span class="logo-text">Student Toolkit</span>
+      </div>
+      <p class="header-sub">대학생을 위한 올인원 도구 모음</p>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <span class="hero-tag">YOUR DAILY CAMPUS TOOLS</span>
+      <h1>더 스마트한 대학생활</h1>
+      <p>과제부터 발표까지, 필요한 도구를 한곳에서.</p>
+    </div>
+  </section>
+
+  <main class="container main-content">
+    <div class="section-header">
+      <h2>나의 학습 도구</h2>
+      <span class="tool-count">8개의 도구</span>
+    </div>
+
+    <div class="tools-grid">
+      <!-- 01. 글자 수 계산기 -->
+      <article class="card">
+        <div class="card-top">
+          <span class="icon">📝</span>
+          <span class="num">01</span>
+        </div>
+        <h3>글자 수 계산기</h3>
+        <p class="desc">과제나 자기소개서의 글자 수를 확인하세요.</p>
+        <textarea id="char-input" rows="4" placeholder="텍스트 입력"></textarea>
+        <label class="checkbox-label">
+          <input type="checkbox" id="char-no-space" />
+          <span>공백 제외</span>
+        </label>
+        <button id="char-btn" class="btn">글자 수 계산</button>
+        <div class="result" id="char-result">총 글자 수: — 자</div>
+      </article>
+
+      <!-- 02. D-day 계산기 -->
+      <article class="card">
+        <div class="card-top">
+          <span class="icon">📅</span>
+          <span class="num">02</span>
+        </div>
+        <h3>D-day 계산기</h3>
+        <p class="desc">시험이나 과제 제출일까지 남은 날짜를 확인하세요.</p>
+        <input type="text" id="dday-title" placeholder="일정 이름 (예: 중간고사)" />
+        <input type="date" id="dday-date" />
+        <button id="dday-btn" class="btn">D-day 계산</button>
+        <div class="result" id="dday-result">남은 기간: — 일</div>
+      </article>
+
+      <!-- 03. 랜덤 순서 정하기 -->
+      <article class="card">
+        <div class="card-top">
+          <span class="icon">🔀</span>
+          <span class="num">03</span>
+        </div>
+        <h3>랜덤 순서 정하기</h3>
+        <p class="desc">발표 순서나 진행 순서를 무작위로 정하세요.</p>
+        <textarea id="order-input" rows="4" placeholder="참여자 이름 (쉼표 또는 줄바꿈으로 구분)"></textarea>
+        <button id="order-btn" class="btn">랜덤 순서 생성</button>
+        <div class="result" id="order-result">순서 결과가 표시됩니다.</div>
+      </article>
+
+      <!-- 04. 팀 구성하기 -->
+      <article class="card">
+        <div class="card-top">
+          <span class="icon">👥</span>
+          <span class="num">04</span>
+        </div>
+        <h3>팀 구성하기</h3>
+        <p class="desc">조별 과제에 필요한 팀을 무작위로 구성하세요.</p>
+        <textarea id="team-input" rows="3" placeholder="참여자 이름 (쉼표 또는 줄바꿈으로 구분)"></textarea>
+        <div class="row">
+          <select id="team-mode">
+            <option value="count">팀 개수 기준</option>
+            <option value="size">팀원 수 기준</option>
+          </select>
+          <input type="number" id="team-num" min="1" placeholder="개수 또는 인원수" />
+        </div>
+        <button id="team-btn" class="btn">팀 구성하기</button>
+        <div class="result" id="team-result">팀 구성 결과가 표시됩니다.</div>
+      </article>
+
+      <!-- 05. 발표 시간 계산기 -->
+      <article class="card">
+        <div class="card-top">
+          <span class="icon">🎤</span>
+          <span class="num">05</span>
+        </div>
+        <h3>발표 시간 계산기</h3>
+        <p class="desc">발표 대본을 바탕으로 예상 발표 시간을 확인하세요.</p>
+        <textarea id="speech-input" rows="4" placeholder="발표 대본 입력"></textarea>
+        <select id="speech-speed">
+          <option value="250">느리게 (분당 250자)</option>
+          <option value="300" selected>보통 (분당 300자)</option>
+          <option value="350">빠르게 (분당 350자)</option>
+        </select>
+        <p class="hint">기본 발표 속도: 분당 300자</p>
+        <button id="speech-btn" class="btn">발표 시간 계산</button>
+        <div class="result" id="speech-result">예상 발표 시간: — 분 — 초</div>
+      </article>
+
+      <!-- 06. 스톱워치 -->
+      <article class="card">
+        <div class="card-top">
+          <span class="icon">⏱️</span>
+          <span class="num">06</span>
+        </div>
+        <h3>스톱워치</h3>
+        <p class="desc">공부 시간이나 발표 시간을 측정하세요.</p>
+        <div class="stopwatch-display" id="sw-display">00:00:00</div>
+        <div class="stopwatch-label">HOURS : MINUTES : SECONDS</div>
+        <div class="btn-group">
+          <button id="sw-start" class="btn">시작</button>
+          <button id="sw-stop" class="btn btn-secondary">정지</button>
+          <button id="sw-reset" class="btn btn-outline">초기화</button>
+        </div>
+        <div class="result" id="sw-status">측정 대기 중</div>
+      </article>
+
+      <!-- 07. BMI 계산기 -->
+      <article class="card">
+        <div class="card-top">
+          <span class="icon">📊</span>
+          <span class="num">07</span>
+        </div>
+        <h3>BMI 계산기</h3>
+        <p class="desc">신장과 체중을 입력하여 체질량지수를 확인하세요.</p>
+        <div class="row">
+          <input type="number" id="bmi-height" step="0.1" placeholder="신장 (cm)" />
+          <input type="number" id="bmi-weight" step="0.1" placeholder="체중 (kg)" />
+        </div>
+        <button id="bmi-btn" class="btn">BMI 계산</button>
+        <div class="result" id="bmi-result">나의 BMI: —</div>
+        <p class="hint">BMI는 건강 상태를 참고하기 위한 지표입니다.</p>
+      </article>
+
+      <!-- 08. 준비물 체크리스트 -->
+      <article class="card">
+        <div class="card-top">
+          <span class="icon">✅</span>
+          <span class="num">08</span>
+        </div>
+        <h3>준비물 체크리스트</h3>
+        <p class="desc">수업이나 시험에 필요한 준비물을 관리하세요.</p>
+        <div class="row">
+          <input type="text" id="todo-input" placeholder="새로운 준비물" />
+          <button id="todo-add" class="btn btn-small">추가</button>
+        </div>
+        <ul class="checklist" id="todo-list"></ul>
+        <div class="result" id="todo-count">완료: 0 / 3개</div>
+        <button id="todo-reset" class="btn btn-outline">체크리스트 초기화</button>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Student Toolkit</p>
+      <p class="footer-sub">Designed for a smarter campus life.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
